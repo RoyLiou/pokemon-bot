@@ -6,11 +6,8 @@ const callWeatherApi = require('../helper/apiWeather')
 router.route('/weather')
   .post(function (req, res) {
     const response = "This is a sample response from your webhook!"
-    // console.log(req.body.result)
     const location = req.body.result.parameters['location']
     const datetime = req.body.result.parameters['datetime']
-    // const location = req.body.location
-    // const datetime = req.body.datetime
 
     res.setHeader('Content-Type', 'application/json')
     callWeatherApi(location, datetime)

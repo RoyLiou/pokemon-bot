@@ -11,9 +11,11 @@ function callWeatherApi(city, date) {
     // Make the HTTP request to get the weather
     http.get(fullPath, (res) => {
       let body = ''; // var to store the response chunks
+      
       res.on('data', (d) => {
         body = body + d
       }); // store each response chunk
+      
       res.on('end', () => {
         // After all the data has been received parse the JSON for desired data
         let response = JSON.parse(body);
@@ -22,7 +24,7 @@ function callWeatherApi(city, date) {
         let wind = response['wind'];
 
         // Create response
-        let output = `${date} ${city} 天氣如下 | 天氣狀況: ${weather['description']} | 溫度: ${parseInt(main['temp'] - 273.15).toFixed(2)}°C | 濕度: ${main['humidity']}% | 風速: ${wind['speed']} meter/sec`;
+        let output = `${date} ${city} 天氣如下 | 天氣狀況: ${weather['description']} | 溫度: ${parseInt(main['temp'] - 273.15).toFixed(2)}°C | 濕度: ${main['humidity']}% | 風速狗: ${wind['speed']} meter/sec`;
         // Resolve the promise with the output text
         resolve(output);
       });
