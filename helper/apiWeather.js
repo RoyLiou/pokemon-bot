@@ -22,7 +22,7 @@ function callWeatherApi(city, date) {
         let wind = response['wind'];
 
         // Create response
-        let output = `${date} ${city} 天氣如下 | 天氣狀況: ${weather['description']} | 溫度: ${parseInt(main['temp'] - 273.15).toFixed(2)}°C | 濕度: ${main['humidity']}% | 風速: ${wind['speed']} meter/sec`;
+        let output = `${date} ${city} 天氣如下 | 天氣狀況: ${weather['description']} | 溫度: ${parseInt(main['temp'] - 273.15).toFixed(2)}°C | 濕度: ${main['humidity']}% | 風速狗: ${wind['speed']} meter/sec`;
         // Resolve the promise with the output text
         resolve(output);
       });
